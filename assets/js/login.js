@@ -29,7 +29,7 @@ $(function () {
     $('#form_reg').on('submit', function (e) {
         //阻止表单的默认提交行为
         e.preventDefault()
-        $.post('http://www.liulongbin.top:3007/api/reguser', { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val() }, function (res) {
+        $.post('/api/reguser', { username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val() }, function (res) {
             if (res.status !== 0) {
                 return console.log(res.message)
             }
@@ -40,7 +40,7 @@ $(function () {
         //阻止表单的默认提交行为
         e.preventDefault()
         $.ajax({
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',
             method: 'POST',
             //快速获取表单数据
             data: $(this).serialize(),
